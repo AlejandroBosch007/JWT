@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 
-
 const sequelize = new Sequelize('jwt', null, null, {
   dialect: 'mssql',
   server: process.env.DB_HOST,
