@@ -1,4 +1,8 @@
-USE api_jwt
+
+CREATE DATABASE jwt
+GO
+
+USE jwt
 GO
 
 CREATE TABLE usuarios (
@@ -10,4 +14,3 @@ CREATE TABLE usuarios (
     contrasena char (100) NOT NULL,
     PRIMARY KEY (id_usr)
 )
-GO
