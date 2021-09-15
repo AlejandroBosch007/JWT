@@ -25,14 +25,17 @@ module.exports.userList = async () => {
 }
 
 module.exports.userCreator = async (user) => {
-    let newUser = [
-        user.name,
-        user.lastname,
-        user.email,
-        user.password
-    ]
+    let newUser = {
+        name: user.name,
+        user: user.user,
+        lastname: user.lastname,
+        email: user.email,
+        password: user.password,
+    }
     try {
+        console.log(newUser)
         let result = await userDB.newUser(newUser)
+
         if (result) {
             return 'User creation successfully'
         } else {
