@@ -26,8 +26,8 @@ module.exports = (app) => {
 
     app.post('/newuser', async (req, res) => {
         try {
-            let usuario = req.body
-            let result = await userService.userCreator(usuario)
+            let user = req.body
+            let result = await userService.userCreator(user)
             res.json(result)
 
         } catch (err) {

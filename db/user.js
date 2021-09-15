@@ -2,12 +2,11 @@ const sequelize = require('./conexion')
 
 module.exports.newUser = async (usr) => {
     try {
-        let result = await sequelize.query(`SELECT * FROM users WHERE lastname = ${usr.lastname}`);
+        let result = await sequelize.query(`SELECT * FROM users WHERE lastname = '${usr.lastname}'`);
         if (result.lenght > 0) {
             return false
         } else {
-            await sequelize.query(`INSERT INTO users ('name', 'lastname', 'email', 'user','password') VALUES (?,?,?,?)`,
-                { replacements: usr, type: sequelize.QueryTypes.SELECT })
+            await sequelize.query(`INSERT INTO users ([name],lastname,email,[user],[password]) VALUES ('${usr.name}','${usr.lastname}','${usr.email}','${usr.user}','${usr.password}')`);
             return true
         }
     } catch (err) {
@@ -18,9 +17,9 @@ module.exports.newUser = async (usr) => {
 module.exports.userExist = async (usr) => {
     let user = [usr.user, usr.password]
     try {
-        let result = await sequelize.query(`SELECT * FROM users WHERE user = '${user[0]}'`);
+        let result = await sequelize.query(`SELECT * FROM users WHERE [user] = '${user[0]}'`);
         if (result) {
-            let verify = await sequelize.query(`SELECT * FROM users WHERE password = '${user[1]}'`);
+            let verify = await sequelize.query(`SELECT * FROM users WHERE [password] = '${user[1]}'`);
             if (verify) {
                 return true
             } else {

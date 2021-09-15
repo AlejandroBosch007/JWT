@@ -4,7 +4,7 @@ module.exports.userValidation = async (req, res, next) => {
     try {
         if (req.headers.authorization != undefined) {
             const token = req.headers.authorization.split(' ')[1]
-            let verifyed = await userServices.verificacionUsuario(token)
+            let verifyed = await userServices.userVerify(token)
             req.params.user = verifyed.data
             return next()
         } else {

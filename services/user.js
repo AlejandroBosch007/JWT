@@ -20,7 +20,7 @@ module.exports.userList = async () => {
         let result = await userDB.users()
         return result
     } catch (err) {
-        throw new Error('Ocurrio un error en la consulta')
+        throw new Error('DB Error')
     }
 }
 
