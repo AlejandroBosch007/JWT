@@ -1,0 +1,16 @@
+{
+
+"login":{
+    "user":"david",
+    "password":"25a6aawdwd8"
+},
+
+"newuser":{
+    "name":"david",
+    "user":"david",
+    "lastname":"tames",
+    "email":"david@tamex.com",
+    "password":"2568"
+}
+
+}
