@@ -8,12 +8,12 @@ app.use(express.json())
 async function serverStart() {
   try {
     await sequelize.authenticate();
-    console.log('Conección estabilizada correctamente');
+    console.log('Correct conexion');
     app.listen(process.env.PORT, function () {
-      console.log(`Sistema iniciado en http://${process.env.HOST}:${process.env.PORT}`);
+      console.log(`Sistem start http://${process.env.HOST}:${process.env.PORT}`);
     });
   } catch (error) {
-    console.error('No se pudo conectar correctamebte con la Base de datos:', error);
+    console.error('DB conexion error:', error);
   }
 }
 
