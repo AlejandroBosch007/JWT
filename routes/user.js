@@ -7,7 +7,7 @@ module.exports = (app) => {
         try {
             let result = await userService.userValidate(user)
             if (result) {
-                let token = await userService.tokenGeneration(user)
+                let token = await userService.tokenGeneration(user.user)
                 res.json(token)
             }
         } catch (err) {
